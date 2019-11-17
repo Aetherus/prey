@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/prey
+
+  mvc:
+    view:
+      suffix: .jsp
