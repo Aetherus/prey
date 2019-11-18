@@ -1,6 +1,7 @@
 package ziyue.prey.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -30,19 +31,20 @@ public class SessionsController {
     @PostMapping
     @SkipAuthentication
     public String $create(@RequestParam String username, @RequestParam String password, HttpSession session) {
-        User user = jdbcTemplate.queryForObject(
-                "select * from users where username = ?",
-                new BeanPropertyRowMapper<User>(User.class),
-                username);
-        if (user == null) {
+        try {
+            User user = jdbcTemplate.queryForObject(
+                    "select * from users where username = ?",
+                    new BeanPropertyRowMapper<User>(User.class),
+                    username);
+            String passwordDigest = DigestUtil.digest(password);
+            if (!user.getPasswordDigest().equals(passwordDigest)) {
+                return "redirect:/sessions/new#invalid-password";
+            }
+            session.setAttribute("currentUser", user);
+            return "redirect:/articles";
+        } catch (EmptyResultDataAccessException e) {
             return "redirect:/sessions/new#invalid-username";
         }
-        String passwordDigest = DigestUtil.digest(password);
-        if (!user.getPasswordDigest().equals(passwordDigest)) {
-            return "redirect:/sessions/new#invalid-password";
-        }
-        session.setAttribute("currentUser", user);
-        return "redirect:/articles";
     }
 
 }
