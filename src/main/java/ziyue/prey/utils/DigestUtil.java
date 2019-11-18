@@ -1,9 +1,11 @@
 package ziyue.prey.utils;
 
-import org.apache.tomcat.util.security.MD5Encoder;
+import org.springframework.util.DigestUtils;
+
+import java.nio.charset.StandardCharsets;
 
 public class DigestUtil {
     public static String digest(String cleanText) {
-        return MD5Encoder.encode(cleanText.getBytes());
+        return DigestUtils.appendMd5DigestAsHex(cleanText.getBytes(StandardCharsets.UTF_8), new StringBuilder()).toString();
     }
 }

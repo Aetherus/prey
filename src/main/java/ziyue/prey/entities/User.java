@@ -1,9 +1,12 @@
 package ziyue.prey.entities;
 
-public class User {
-    public Long id;
-    public String username;
-    public String password;
+import lombok.Data;
 
-    public String passwordDigest;
+@Data
+public class User {
+    private Long id;
+    private String username;
+    private String password;
+
+    private String passwordDigest;
 }

@@ -1,7 +1,10 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost/prey
+    username: zhouminhao
+    password: 1q2w3e4r5t
 
   mvc:
     view:
       suffix: .jsp
+      prefix: /WEB-INF/jsp/
