@@ -13,6 +13,7 @@ import ziyue.prey.annotations.SkipAuthentication;
 import ziyue.prey.entities.User;
 import ziyue.prey.utils.DigestUtil;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -30,7 +31,7 @@ public class SessionsController {
 
     @PostMapping
     @SkipAuthentication
-    public String $create(@RequestParam String username, @RequestParam String password, HttpSession session) {
+    public String $create(@RequestParam String username, @RequestParam String password, HttpServletRequest request, HttpSession session) {
         try {
             User user = jdbcTemplate.queryForObject(
                     "select * from users where username = ?",
@@ -40,6 +41,8 @@ public class SessionsController {
             if (!user.getPasswordDigest().equals(passwordDigest)) {
                 return "redirect:/sessions/new#invalid-password";
             }
+            session.invalidate();
+            session = request.getSession(true);
             session.setAttribute("currentUser", user);
             return "redirect:/articles";
         } catch (EmptyResultDataAccessException e) {
