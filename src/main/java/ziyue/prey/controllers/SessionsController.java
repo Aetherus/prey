@@ -38,12 +38,12 @@ public class SessionsController {
                     username);
             String passwordDigest = DigestUtil.digest(password);
             if (!user.getPasswordDigest().equals(passwordDigest)) {
-                return "redirect:/sessions/new#invalid-password";
+                return "redirect:https://localhost:8080/sessions/new#invalid-password";
             }
             session.setAttribute("currentUser", user);
-            return "redirect:/articles";
+            return "redirect:https://localhost:8080/articles";
         } catch (EmptyResultDataAccessException e) {
-            return "redirect:/sessions/new#invalid-username";
+            return "redirect:https://localhost:8080/sessions/new#invalid-username";
         }
     }
 
