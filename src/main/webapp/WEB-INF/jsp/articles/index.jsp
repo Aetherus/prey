@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html>
     <head>
@@ -18,7 +19,7 @@
         <ul>
             <c:forEach items="${articles}" var="article">
                 <li>
-                    <a href="/articles/${article.id}">${article.title}</a>
+                    <a href="/articles/${article.id}">${fn:escapeXml(article.title)}</a>
                     <a href="/articles/${article.id}?_method=delete">删除</a>
                 </li>
             </c:forEach>
