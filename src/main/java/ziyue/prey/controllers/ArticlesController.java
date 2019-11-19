@@ -21,11 +21,14 @@ public class ArticlesController {
 
     @GetMapping
     public String $index(@RequestParam(required = false) String keyword, @SessionAttribute User currentUser, Model model) {
-        String sql = "select id, title, content, user_id from articles";
-        if (keyword != null) {
-            sql += " where title like '%" + keyword +"%'";
+        List<Article> articles;
+        if (keyword == null) {
+            String sql = "select id, title, content, user_id from articles";
+            articles = jdbcTemplate.query(sql, rowMapper());
+        } else {
+            String sql = "select id, title, content, user_id from articles where title like ?";
+            articles = jdbcTemplate.query(sql, rowMapper(), "%" + keyword + "%");
         }
-        List<Article> articles = jdbcTemplate.query(sql, rowMapper());
         model.addAttribute("articles", articles);
         return "articles/index";
     }
