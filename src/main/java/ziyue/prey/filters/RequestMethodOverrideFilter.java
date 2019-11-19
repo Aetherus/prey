@@ -1,7 +1,5 @@
 package ziyue.prey.filters;
 
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.FilterChain;
@@ -12,8 +10,6 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component
-@Order(1)
 public class RequestMethodOverrideFilter extends HttpFilter {
 
     @Override
