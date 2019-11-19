@@ -19,7 +19,7 @@
             <c:forEach items="${articles}" var="article">
                 <li>
                     <a href="/articles/${article.id}">${article.title}</a>
-                    <a href="/articles/${article.id}?_method=delete">删除</a>
+                    <a href="/articles/${article.id}?_method=delete&_csrfToken=${pageContext.session.getAttribute("csrfToken")}">删除</a>
                 </li>
             </c:forEach>
         </ul>

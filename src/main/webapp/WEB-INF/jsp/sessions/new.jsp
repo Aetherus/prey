@@ -14,6 +14,7 @@
 
     <body>
         <form action="/sessions" method="post">
+            <input type="hidden" name="_csrfToken" value="${pageContext.session.getAttribute("csrfToken")}"/>
             <p>
                 <input name="username" placeholder="用户名"/><br/>
                 <small id="invalid-username" style="color: red; display: none">用户名错误</small>

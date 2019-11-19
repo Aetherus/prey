@@ -8,6 +8,7 @@
 
     <body>
         <form action="/articles" method="post">
+            <input type="hidden" name="_csrfToken" value="${pageContext.session.getAttribute("csrfToken")}"/>
             <p>
                 <input name="title" placeholder="标题"/>
             </p>
