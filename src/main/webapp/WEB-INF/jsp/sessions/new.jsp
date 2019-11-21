@@ -15,15 +15,15 @@
     <body>
         <form action="/sessions" method="post">
             <p>
-                <input name="username" placeholder="用户名"/><br/>
-                <small id="invalid-username" style="color: red; display: none">用户名错误</small>
+                <input name="username" placeholder="Username"/><br/>
+                <small id="invalid-username" style="color: red; display: none">Invalid username</small>
             </p>
             <p>
-                <input type="password" name="password" placeholder="密码"/><br/>
-                <small id="invalid-password" style="color: red; display: none">密码错误</small>
+                <input type="password" name="password" placeholder="Password"/><br/>
+                <small id="invalid-password" style="color: red; display: none">Invalid password</small>
             </p>
             <p>
-                <button type="submit">登录</button>
+                <button type="submit">Login</button>
             </p>
         </form>
     </body>

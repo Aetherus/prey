@@ -11,6 +11,6 @@
             <h1>${article.title}</h1>
             <p>${article.content}</p>
         </article>
-        <a href="/articles">返回</a>
+        <a href="/articles">Back</a>
     </body>
 </html>
