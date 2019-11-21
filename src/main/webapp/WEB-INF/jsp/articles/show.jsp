@@ -12,6 +12,6 @@
             <h1>${fn:escapeXml(article.title)}</h1>
             <p>${fn:escapeXml(article.content)}</p>
         </article>
-        <a href="/articles">返回</a>
+        <a href="/articles">Back</a>
     </body>
 </html>
