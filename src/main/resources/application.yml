@@ -8,3 +8,10 @@ spring:
     view:
       suffix: .jsp
       prefix: /WEB-INF/jsp/
+server:
+  servlet:
+    session:
+      tracking-modes:
+        - cookie
+      cookie:
+        http-only: true
