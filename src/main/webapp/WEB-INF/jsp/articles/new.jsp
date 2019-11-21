@@ -10,13 +10,13 @@
         <form action="/articles" method="post">
             <input type="hidden" name="_csrfToken" value="${pageContext.session.getAttribute("csrfToken")}"/>
             <p>
-                <input name="title" placeholder="标题"/>
+                <input name="title" placeholder="Title"/>
             </p>
             <p>
-                <textarea name="content" rows="20" placeholder="正文"></textarea>
+                <textarea name="content" rows="20" placeholder="Content"></textarea>
             </p>
             <p>
-                <button type="submit">提交</button>
+                <button type="submit">Create Article</button>
             </p>
         </form>
         <a href="/articles">返回</a>

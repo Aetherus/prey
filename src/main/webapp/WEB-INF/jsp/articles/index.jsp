@@ -9,17 +9,17 @@
 
     <body>
         <form action="/articles" method="get">
-            <input name="keyword" placeholder="请输入关键字"/>
-            <button type="submit">搜索</button>
+            <input name="keyword" placeholder="Keyword"/>
+            <button type="submit">Search</button>
         </form>
 
-        <a href="/articles/new">新建</a>
+        <a href="/articles/new">New</a>
 
         <ul>
             <c:forEach items="${articles}" var="article">
                 <li>
                     <a href="/articles/${article.id}">${article.title}</a>
-                    <a href="/articles/${article.id}?_method=delete&_csrfToken=${pageContext.session.getAttribute("csrfToken")}">删除</a>
+                    <a href="/articles/${article.id}?_method=delete&_csrfToken=${pageContext.session.getAttribute("csrfToken")}">Delete</a>
                 </li>
             </c:forEach>
         </ul>
