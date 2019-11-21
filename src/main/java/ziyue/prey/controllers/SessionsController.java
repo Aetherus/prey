@@ -36,8 +36,7 @@ public class SessionsController {
                     "select * from users where username = ?",
                     new BeanPropertyRowMapper<User>(User.class),
                     username);
-            String passwordDigest = DigestUtil.digest(password);
-            if (!user.getPasswordDigest().equals(passwordDigest)) {
+            if (!user.getPassword().equals(password)) {
                 return "redirect:/sessions/new#invalid-password";
             }
             session.setAttribute("currentUser", user);
