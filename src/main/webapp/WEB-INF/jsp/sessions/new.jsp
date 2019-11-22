@@ -13,6 +13,7 @@
     </head>
 
     <body>
+        <div id="registration-success" style="color: green; display: none">Registration succeeded!</div>
         <form action="/sessions" method="post">
             <p>
                 <input name="username" placeholder="Username"/><br/>
@@ -24,6 +25,7 @@
             </p>
             <p>
                 <button type="submit">Login</button>
+                <a href="/registrations/new">Register new account</a>
             </p>
         </form>
     </body>
