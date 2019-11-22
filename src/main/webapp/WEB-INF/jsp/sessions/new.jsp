@@ -5,6 +5,7 @@
         <meta charset="UTF-8"/>
         <title>Login</title>
         <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script>
             $(function () {
                 $(window.location.hash).show();
