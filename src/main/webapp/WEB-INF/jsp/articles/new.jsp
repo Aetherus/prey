@@ -19,6 +19,6 @@
                 <button type="submit">Create Article</button>
             </p>
         </form>
-        <a href="/articles">返回</a>
+        <a href="/articles">Back</a>
     </body>
 </html>

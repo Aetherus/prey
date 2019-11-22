@@ -13,6 +13,7 @@
     </head>
 
     <body>
+        <div id="registration-success" style="color: green; display: none">Registration succeeded!</div>
         <form action="/sessions" method="post">
             <input type="hidden" name="_csrfToken" value="${pageContext.session.getAttribute("csrfToken")}"/>
             <p>
@@ -25,6 +26,7 @@
             </p>
             <p>
                 <button type="submit">Login</button>
+                <a href="/registrations/new">Register new account</a>
             </p>
         </form>
     </body>
