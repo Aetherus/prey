@@ -8,4 +8,6 @@ public class Article {
     private Long userId;
     private String title;
     private String content;
+
+    private String username;
 }
