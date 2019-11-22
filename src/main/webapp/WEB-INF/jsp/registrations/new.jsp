@@ -14,6 +14,7 @@
 
 <body>
 <form action="/registrations" method="post">
+    <input type="hidden" name="_csrfToken" value="${pageContext.session.getAttribute("csrfToken")}"/>
     <p>
         <input name="username" placeholder="Username"/><br/>
         <small id="duplicate-username" style="color: red; display: none">Username has already been taken</small>
