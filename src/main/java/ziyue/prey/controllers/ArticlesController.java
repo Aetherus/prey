@@ -23,10 +23,10 @@ public class ArticlesController {
     public String $index(@RequestParam(required = false) String keyword, @SessionAttribute User currentUser, Model model) {
         List<Article> articles;
         if (keyword == null) {
-            String sql = "select id, title, content, user_id from articles";
+            String sql = "select articles.id, articles.title, users.username from articles inner join users on articles.user_id = users.id";
             articles = jdbcTemplate.query(sql, rowMapper());
         } else {
-            String sql = "select id, title, content, user_id from articles where title like ?";
+            String sql = "select articles.id, articles.title, users.username from articles inner join users on articles.user_id = users.id where title like ?";
             articles = jdbcTemplate.query(sql, rowMapper(), "%" + keyword + "%");
         }
         model.addAttribute("articles", articles);
