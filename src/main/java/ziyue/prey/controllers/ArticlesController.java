@@ -21,9 +21,9 @@ public class ArticlesController {
 
     @GetMapping
     public String $index(@RequestParam(required = false) String keyword, @SessionAttribute User currentUser, Model model) {
-        String sql = "select id, title, content, user_id from articles";
+        String sql = "select articles.id, articles.title, users.username from articles inner join users on articles.user_id = users.id";
         if (keyword != null) {
-            sql += " where title like '%" + keyword +"%'";
+            sql += " where articles.title like '%" + keyword + "%'";
         }
         List<Article> articles = jdbcTemplate.query(sql, rowMapper());
         model.addAttribute("articles", articles);
